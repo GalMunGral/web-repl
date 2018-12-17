@@ -1,0 +1,29 @@
+body {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 16px;
+}
+p {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  margin: 5px;
+  margin-left: 25vw;
+  max-width: 50vw;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+textarea {
+  box-sizing: content-box;
+  resize: none;
+  width: 50vw;
+  height: 200px;
+  border: 1px solid #FFFFFF;
+  margin-top: 10px;
+  margin-left: 25vw;
+  padding: 2px 5px;
+  line-height: 16px;
+  font-size: 18px;
+  font-family: 'Courier New', Courier, monospace;
+  word-wrap: break-word;
+  word-break: break-all;
+  outline: none;
+}
