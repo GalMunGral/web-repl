@@ -1,0 +1,36 @@
+{
+  "name": "web-repl",
+  "version": "1.0.0",
+  "description": "Run `npm start`. Type in the input box as you would on a terminal, but hit `Enter` twice to execute each line.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server & nodemon server.js &",
+    "start": "webpack --mode=production && node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GalMunGral/web-repl.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GalMunGral/web-repl/issues"
+  },
+  "homepage": "https://github.com/GalMunGral/web-repl#readme",
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.6",
+    "node-sass": "^4.12.0",
+    "nodemon": "^1.19.1",
+    "sass-loader": "^7.1.0",
+    "webpack": "^4.36.1",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.7.2"
+  }
+}

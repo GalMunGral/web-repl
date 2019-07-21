@@ -1,3 +1,10 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+ReactDOM.render(
+  <h1>Hello, world! sdfsdfdf df</h1>,
+  document.getElementById('root')
+)
+/*
 window.onload = () => {
   let counter = 0;
   let enterPressed = false;
@@ -94,3 +101,4 @@ window.onload = () => {
       })
   }
 }
+*/
