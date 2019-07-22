@@ -8,13 +8,18 @@ py.stdout.setEncoding('utf-8');
 
 const server = http.createServer((req, res) => {
   let match;
-  req.url += (req.url === '/') ? 'index.html' : '';
-  if (match = req.url.match(/\w+.(html|js|css)$/)) {
+  req.url += (req.url === '/' ? 'index.html' : '');
+  let filePath = __dirname + req.url;
+  console.log(filePath);
+  if (match = filePath.match(/\w+.(html|js|css)$/)) {
+    if (!fs.existsSync(filePath)) {
+      console.log('File not found');
+      res.statusCode = 404;
+      res.end();
+      return;
+    }
     console.log('Server file');
-    let filePath = 'build' + req.url;
-    console.log(filePath);
-    if (!fs.existsSync(filePath)) return;
-    res.setHeader('Content-Type', `text/${match[1]}`);
+    res.setHeader('Content-Type', `text/${match[1]};;charset=UTF-8`);
     fs.createReadStream(filePath).pipe(res);
   }
 
