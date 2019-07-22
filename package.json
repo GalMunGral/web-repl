@@ -4,7 +4,9 @@
   "description": "Run `npm start`. Type in the input box as you would on a terminal, but hit `Enter` twice to execute each line.",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server & nodemon server.js &",
+    "dev:server" : "nodemon server.js",
+    "dev:webpack": "webpack-dev-server",
+    "dev": "concurrently 'npm run dev:server' 'npm run dev:webpack'",
     "start": "webpack --mode=production && node server.js"
   },
   "repository": {
@@ -26,6 +28,7 @@
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",
+    "concurrently": "^4.1.1",
     "node-sass": "^4.12.0",
     "nodemon": "^1.19.1",
     "sass-loader": "^7.1.0",
