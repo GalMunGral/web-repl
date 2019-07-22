@@ -6,10 +6,7 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      history: [{
-        in: "Test input",
-        out: "Test output"
-      }]
+      history: []
     }
     this.clearHistory = this.clearHistory.bind(this);
     this.appendHistory = this.appendHistory.bind(this);
@@ -26,6 +23,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="app">
+        <nav><h1>Python 3 Console</h1></nav>
         <History history={this.state.history}/>
         <Input history={this.state.history}
           clearHistory={this.clearHistory}

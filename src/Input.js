@@ -4,7 +4,7 @@ export default class Input extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      enterPressed: false,
+      shiftPressed: false,
       value: '',
       index: this.props.history.length
     }
@@ -13,7 +13,26 @@ export default class Input extends Component {
     this.onKeyDown = this.onKeyDown.bind(this);
   }
 
-  reset() { this.setState( { enterPressed: false, value: '' }) };
+  reset() {
+    this.setState({
+      shiftPressed: false,
+      value: '',
+      index: this.props.history.length
+    });
+  }
+  
+  onKeyDown(e) {
+    switch(e.key) {
+      case 'Tab':
+      case 'ArrowUp':
+      case 'ArrowDown':
+        e.preventDefault();
+        break;
+      case 'Shift':
+        this.setState({ shiftPressed: true });
+        break;
+    }
+  }
 
   onkeyup(e) {
     switch(e.key) {
@@ -41,19 +60,20 @@ export default class Input extends Component {
         })
         break;
       }
+      case 'Shift': {
+        this.setState({ shiftPressed: false });
+        break;
+      }
       case 'Enter': {
-        if (!this.state.enterPressed) {
-          this.setState({ enterPressed: true });
-          break;
-        }
-        if (this.state.value === 'clear\r\r') {
+        if (!this.state.shiftPressed) break;
+        if (this.state.value.trim() === 'clear') {
           this.props.clearHistory();
           this.reset();
         } else {
           this.execute(output => {
             this.props.appendHistory({
-              in: this.state.value.replace(/\s+$/, ''),
-              out: output
+              in: this.state.value.trim() || ' ',
+              out: output.trim() || '(empty)'
             })
             this.reset();
           });
@@ -79,25 +99,15 @@ export default class Input extends Component {
       .then(outputHandler);
   }
 
-  onKeyDown(e) {
-    switch(e.key) {
-      case 'Tab':
-      case 'ArrowUp':
-      case 'ArrowDown':
-        e.preventDefault();
-        break;
-    }
-  }
-
   render() {
     return (
-      <textarea id="input" autoFocus id="input" rows="2" placeholder="Type here"
-        value={this.state.value}
+      <textarea className="card syntax-highlight" id="input" autoFocus id="input" rows="2" 
+        value={this.state.value} placeholder="Type here"
         onKeyDown={this.onKeyDown} onKeyUp={this.onKeyUp}
         onChange={e => {
           this.setState({ value: e.target.value.replace(/\n/g, '\r') });
         }}
-      />
+      />      
     );
   }
 }
