@@ -18,6 +18,7 @@ const server = http.createServer((req, res) => {
     fs.createReadStream(filePath).pipe(res);
   }
 
+  res.setHeader('Access-Control-Allow-Origin', '*');
   req.setEncoding('utf-8');
   req.on('data', (input) => {
     py.stdout.on('data', (data) => {

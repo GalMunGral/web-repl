@@ -1,8 +1,25 @@
 body {
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 16px;
+  font-size: 16px;  
 }
-p {
+#root {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+.app {
+  flex: 0 1 600px;
+}
+#input {
+  width: 100%;
+}
+.vertical-center {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: start;
+}
+/* p {
   font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
   margin: 5px;
@@ -26,4 +43,4 @@ textarea {
   word-wrap: break-word;
   word-break: break-all;
   outline: none;
-}
+} */
