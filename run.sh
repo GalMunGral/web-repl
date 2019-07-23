@@ -1,1 +1,1 @@
-npm run prod:serve
+npm run prod:serve &
