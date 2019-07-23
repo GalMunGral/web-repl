@@ -4,10 +4,12 @@
   "description": "Run `npm start`. Type in the input box as you would on a terminal, but hit `Enter` twice to execute each line.",
   "main": "index.js",
   "scripts": {
-    "dev:server": "nodemon server.js",
-    "dev:webpack": "webpack-dev-server",
-    "dev": "concurrently 'npm run dev:server' 'npm run dev:webpack'",
-    "start": "webpack --mode=production && node server.js"
+    "prod:build": "webpack --mode=production",
+    "prod:serve": "node server.js",
+    "start": "npm run prod:build && npm run prod:serve",
+    "dev:serve": "nodemon server.js",
+    "dev:build": "webpack-dev-server",
+    "dev": "concurrently 'npm run dev:build' 'npm run dev:serve' "
   },
   "repository": {
     "type": "git",

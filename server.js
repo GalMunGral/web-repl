@@ -10,7 +10,6 @@ const server = http.createServer((req, res) => {
   let match;
   req.url += (req.url === '/' ? 'index.html' : '');
   let filePath = __dirname + req.url;
-  console.log(filePath);
   if (match = filePath.match(/\w+.(html|js|css)$/)) {
     if (!fs.existsSync(filePath)) {
       console.log('File not found');
@@ -18,7 +17,6 @@ const server = http.createServer((req, res) => {
       res.end();
       return;
     }
-    console.log('Server file');
     res.setHeader('Content-Type', `text/${match[1]};;charset=UTF-8`);
     fs.createReadStream(filePath).pipe(res);
   }
@@ -34,6 +32,6 @@ const server = http.createServer((req, res) => {
   });
 });
 
-server.listen(8080, () => {
-  console.log('Listening on http://127.0.0.1:8080')
+server.listen(3004, () => {
+  console.log('Listening on http://127.0.0.1:3004')
 });

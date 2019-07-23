@@ -89,7 +89,7 @@ export default class Input extends Component {
   execute(outputHandler) {
     let headers = new Headers;
     headers.append('Content-Type', 'text/plain');
-    let request = new Request('//localhost:8080/eval', {
+    let request = new Request('//portfolio-galmungral.herokuapp.com/web-repl/eval', {
       method: 'POST',
       headers: headers,
       body: this.state.value + ' '       
