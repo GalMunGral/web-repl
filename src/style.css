@@ -4,12 +4,14 @@ body {
 h1 {
   font-family: 'Bungee Shade', cursive;
   margin: 0;
+  line-height: 70px;
 }
 nav {
   position: fixed;
   left: 0;
   right: 0;
   top: 0;
+  height: 70px;
   padding-left: 50px;
   background: rgba(255, 255, 255, 0.8);
   box-shadow: 0 0 5px gray;
