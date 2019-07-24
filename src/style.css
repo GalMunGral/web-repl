@@ -3,6 +3,7 @@ body {
 }
 h1 {
   font-family: 'Bungee Shade', cursive;
+  margin: 0;
 }
 nav {
   position: fixed;
