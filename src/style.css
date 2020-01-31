@@ -7,6 +7,10 @@ h1 {
   line-height: 70px;
 }
 nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   position: fixed;
   left: 0;
   right: 0;
@@ -15,6 +19,19 @@ nav {
   padding-left: 50px;
   background: rgba(255, 255, 255, 0.8);
   box-shadow: 0 0 5px gray;
+}
+.instruction {
+  font-family: monospace;
+}
+nav input {
+  margin: 5px 20px;
+  padding: 5px;
+  width: 50px;
+  height: 24px;
+  text-align: center;
+  font-weight: bolder;
+  outline: none;
+  border: none;
 }
 .block {
   max-width: 90%;
@@ -54,7 +71,7 @@ textarea.card {
   border: none;
   padding: 20px;
   height: 90px;
-  margin-bottom: 70vh;
+  /* margin-bottom: 70vh; */
 }
 .card {
   font-family: 'Ubuntu Mono', monospace;
