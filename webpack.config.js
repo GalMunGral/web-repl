@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  entry: path.resolve(__dirname, 'src/index.js'),
+  entry: path.resolve(__dirname, 'frontend/index.js'),
   output: {
     path: __dirname,
     filename: 'bundle.js'
@@ -16,7 +16,10 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react']
+            presets: ['@babel/preset-react'],
+            plugins: [
+              ['@babel/plugin-proposal-class-properties']
+          ]
           }
         }
       }
@@ -24,6 +27,6 @@ module.exports = {
   },
   devServer: {
     port: 3000,
-    filename: 'bundle.js'
+    historyApiFallback: true
   }
 };
